@@ -1,0 +1,31 @@
+ <!-- HEADER - MENU -->
+<header>
+    <div class="w-25 d-flex justify-content-center align-items-center">
+        <a routerLink="/inicio" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+            true}" ><h3 class="menu-logo">PHOTO<span>BOOK</span></h3></a>
+    </div>
+
+    <input type="checkbox" id="menu" >
+    <label for="menu" class="bar-menu"></label>
+
+    <nav class="menu d-flex justify-content-around align-items-center">
+        <ul class="m-0">
+            <li>
+                <a routerLink="/inicio" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                    true}" class="nav-link">INICIO</a>
+            </li>
+            <li>
+                <a routerLink="/historias" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                    true}" class="nav-link">HISTORIAS</a>
+            </li>
+            <li>
+                <a routerLink="/about" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                    true}" class="nav-link">SOBRE NOSOTROS</a>
+            </li>
+        </ul>
+
+        <button class="btn btn-login btn-100-sm mb-8-sm" routerLink="/historias/crear" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+            true}" >CREAR</button>
+    </nav>
+</header> 
+<!-- END HEADER - MENU -->

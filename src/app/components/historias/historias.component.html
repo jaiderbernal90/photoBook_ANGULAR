@@ -1,0 +1,294 @@
+
+
+<main>
+    <section class="story-view row p-0 m-0" *ngFor="let historia of historia_destacada">
+        <img class="img-background p-0 col-sm-12" src="../assets/img/stories/{{ historia['image'] }}" alt="">
+
+        <div class="position-absolute d-flex flex-column justify-content-center top-0 h-100 w-lg-50 w-sm-100 px-md-3 px-lg-5 text-white col-sm-12 top-content px-sm-0">
+            <strong class="favorite-story mb-lg-4 mb-md-2 px-5">HISTORIA DESTACADA DEL MES</strong>
+            <h3 class="fw-bold px-5 fz-40 text-white w-75 space-2 mb-5">{{ historia['title'] }}</h3>
+
+            <span class="date-story px-5 mb-5 color-grayLight">2 de Marzo del 2020 <em class="text-white">  by John Appleseed</em></span>
+
+            <p class="text-principaly px-5 mb-5 color-grayLight">La zona de la meseta disecada, aunque en realidad no está formada por montañas geológicas, se llama popularmente "montañas", especialmente en el este de Kentucky y Virginia Occidental, y aunque las crestas no son altas, el terreno es extremadamente accidentado.</p>
+
+            <div class="d-flex  px-5">
+                <a routerLink="{{ historia['_id'] }}" class="links space-1 ms-24">VER HISTORIA</a>
+                <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+            </div>
+        </div>
+    </section>
+       <!-- GALERY -->
+       <section class="grid-gallery w-100 p-0 m-0">
+            <div class="row h-450 h-md-auto w-100 m-0" >
+                <!-- ITEM 1 -->
+                <article class="item-gallery col-xl-3 col-md-6 col-sm-12 p-0" *ngFor="let historia of historias">
+                    <img class="img-response" src="../assets/img/stories/{{ historia['image'] }}" alt="Stories">
+                    <div class="stories">
+                        <div class="border-bottom container-title-story">
+                            <h3>{{ historia['title'] }}</h3>
+                            <span>Por John Appleseed</span>
+                        </div>
+                        <div class="w-100 d-flex justify-between">
+                            <a class="links" (click)="eliminarHistoria()" routerLink="{{ historia['_id'] }}">Leer Historia</a>
+                            <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+                        </div>
+                    </div>
+                    <div class="bar-gradient-horizontal"></div>
+                </article>
+
+                <!-- ITEM 2 -->
+                <!-- <article class="item-gallery col-xl-3 col-md-6 col-sm-12 p-0">
+                    <img class="img-response" src="../assets/img/stories/pict7-land-of-dreams.jpg" alt="Stories">
+                    <div class="stories">
+                        <div class="border-bottom container-title-story">
+                            <h3>Estructura Mediterranea</h3>
+                            <span>Por John Appleseed</span>
+                        </div>
+                        <div class="w-100 d-flex justify-between">
+                            <a class="links" (click)="editarHistoria()">Leer Historia</a>
+                            <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+                        </div>
+                    </div>
+                    <div class="bar-gradient-horizontal"></div>
+                </article> -->
+
+                <!-- ITEM 3 -->
+                <!-- <article class="item-gallery col-xl-3 col-md-6 col-sm-12 p-0">
+                    <img class="img-response" src="../assets/img/stories/pict3-behind-the-waves.jpg" alt="Stories">
+                    <div class="stories">
+                        <div class="border-bottom container-title-story">
+                            <h3>Olas de Mar</h3>
+                            <span>Por John Appleseed</span>
+                        </div>
+                        <div class="w-100 d-flex justify-between">
+                            <a class="links" href="">Leer Historia</a>
+                            <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+                        </div>
+                    </div>
+                    <div class="bar-gradient-horizontal"></div>
+                </article> -->
+
+                <!-- ITEM 4 -->
+                <!-- <article class="item-gallery col-xl-3 col-md-6 col-sm-12 p-0">
+                    <img class="img-response" src="../assets/img/stories/pict2-running-free.jpg" alt="Stories">
+                    <div class="stories">
+                        <div class="border-bottom container-title-story">
+                            <h3>Naturaleza</h3>
+                            <span>Por Adien Mason</span>
+                        </div>
+                        <div class="w-100 d-flex justify-between">
+                            <a class="links" href="">Leer Historia</a>
+                            <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+                        </div>
+                    </div>
+                    <div class="bar-gradient-horizontal"></div>
+                </article> -->
+            </div>
+
+            <!-- <div class="row h-450 h-md-auto w-100 m-0"> -->
+                <!-- ITEM 5 -->
+                <!-- <article class="item-gallery col-xl-3 col-md-6 col-sm-12 p-0">
+                    <img class="img-response" src="../assets/img/stories/pic-5-story.jpg" alt="Stories">
+                    <div class="stories">
+                        <div class="border-bottom container-title-story">
+                            <h3>Sombras</h3>
+                            <span>Por John Anderson</span>
+                        </div>
+                        <div class="w-100 d-flex justify-between">
+                            <a class="links" href="">Leer Historia</a>
+                            <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+                        </div>
+                    </div>
+                    <div class="bar-gradient-horizontal"></div>
+                </article> -->
+
+                <!-- ITEM 6 -->
+                <!-- <article class="item-gallery col-xl-3 col-md-6 col-sm-12 p-0">
+                    <img class="img-response" src="../assets/img/stories/pic9-trip-to-nowhere.jpg" alt="Stories">
+                    <div class="stories">
+                        <div class="border-bottom container-title-story">
+                            <h3>Preciado Oasis</h3>
+                            <span>Por Andrew Jhonsson</span>
+                        </div>
+                        <div class="w-100 d-flex justify-between">
+                            <a class="links" href="">Leer Historia</a>
+                            <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+                        </div>
+                    </div>
+                    <div class="bar-gradient-horizontal"></div>
+                </article> -->
+
+                <!-- ITEM 7 -->
+                <!-- <article class="item-gallery col-xl-3 col-md-6 col-sm-12 p-0" >
+                    <img class="img-response" src="../assets/img/stories/pic-7-story.jpg" alt="Stories">
+                    <div class="stories">
+                        <div class="border-bottom container-title-story">
+                            <h3>El Metro</h3>
+                            <span>Por John Appleseed</span>
+                        </div>
+                        <div class="w-100 d-flex justify-between">
+                            <a class="links" href="">Leer Historia</a>
+                            <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+                        </div>
+                    </div>
+                    <div class="bar-gradient-horizontal"></div>
+                </article> -->
+
+                <!-- ITEM 8 -->
+                <!-- <article class="item-gallery col-xl-3 col-md-6 col-sm-12 p-0">
+                    <img class="img-response" src="../assets/img/stories/pic-8-story.jpg" alt="Stories">
+                    <div class="stories">
+                        <div class="border-bottom container-title-story">
+                            <h3>Barrio</h3>
+                            <span>Por Carla Morrison</span>
+                        </div>
+                        <div class="w-100 d-flex justify-between">
+                            <a class="links" href="">Leer Historia</a>
+                            <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+                        </div>
+                    </div>
+                    <div class="bar-gradient-horizontal"></div>
+                </article> -->
+            <!-- </div> -->
+
+            <!-- <div class="row h-450 h-md-auto w-100 m-0"> -->
+                <!-- ITEM 9 -->
+                <!-- <article class="item-gallery col-xl-3 col-md-6 col-m-12 p-0">
+                    <img class="img-response" src="../assets/img/stories/pic-9-story.jpg" alt="Stories">
+                    <div class="stories">
+                        <div class="border-bottom container-title-story">
+                            <h3>Black and White</h3>
+                            <span>Por Carla Morrison</span>
+                        </div>
+                        <div class="w-100 d-flex justify-between">
+                            <a class="links" href="">Leer Historia</a>
+                            <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+                        </div>
+                    </div>
+                    <div class="bar-gradient-horizontal"></div>
+                </article> -->
+
+                <!-- ITEM 10 -->
+                <!-- <article class="item-gallery col-xl-3 col-md-6 col-sm-12 p-0">
+                    <img class="img-response" src="../assets/img/stories/pict7-somwarpet.jpg" alt="Stories">
+                    <div class="stories">
+                        <div class="border-bottom container-title-story">
+                            <h3>Flores de Jardín</h3>
+                            <span>Por Kany Jhonsson</span>
+                        </div>
+                        <div class="w-100 d-flex justify-between">
+                            <a class="links" href="">Leer Historia</a>
+                            <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+                        </div>
+                    </div>
+                    <div class="bar-gradient-horizontal"></div>
+                </article> -->
+
+                <!-- ITEM 11 -->
+                <!-- <article class="item-gallery col-xl-3 col-md-6 col-sm-12 p-0">
+                    <img class="img-response" src="../assets/img/stories/pic-11-story.jpg" alt="Stories">
+                    <div class="stories">
+                        <div class="border-bottom container-title-story">
+                            <h3>Pintura</h3>
+                            <span>Por John Jhonsson</span>
+                        </div>
+                        <div class="w-100 d-flex justify-between">
+                            <a class="links" href="">Leer Historia</a>
+                            <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+                        </div>
+                    </div>
+                    <div class="bar-gradient-horizontal"></div>
+                </article> -->
+
+                <!-- ITEM 12 -->
+                <!-- <article class="item-gallery col-xl-3 col-md-6 col-sm-12 p-0">
+                    <img class="img-response" src="../assets/img/stories/pic1-mountains.jpg" alt="Stories">
+                    <div class="stories">
+                        <div class="border-bottom container-title-story">
+                            <h3>Rocas con Nieve</h3>
+                            <span>Por Clarence Appleseed</span>
+                        </div>
+                        <div class="w-100 d-flex justify-between">
+                            <a class="links" href="">Leer Historia</a>
+                            <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+                        </div>
+                    </div>
+                    <div class="bar-gradient-horizontal"></div>
+                </article>
+            </div>
+  -->
+            <!-- <div class="row h-450 h-md-auto w-100 m-0"> -->
+                <!-- ITEM 13 -->
+                <!-- <article class="item-gallery col-xl-3 col-md-6 col-sm-12 p-0">
+                    <img class="img-response" src="../assets/img/stories/pic7-unforeseen-corners.jpg" alt="Stories">
+                    <div class="stories">
+                        <div class="border-bottom container-title-story">
+                            <h3>Cielo Rojizo</h3>
+                            <span>Por Kim Coleman</span>
+                        </div>
+                        <div class="w-100 d-flex justify-between">
+                            <a class="links" href="">Leer Historia</a>
+                            <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+                        </div>
+                    </div>
+                    <div class="bar-gradient-horizontal"></div>
+                </article> -->
+
+                <!-- ITEM 14 -->
+                <!-- <article class="item-gallery col-xl-3 col-md-6 col-sm-12 p-0">
+                    <img class="img-response" src="../assets/img/stories/pic5-world-tour.jpg" alt="Stories">
+                    <div class="stories">
+                        <div class="border-bottom container-title-story">
+                            <h3>Lago</h3>
+                            <span>Por Donald Kurm</span>
+                        </div>
+                        <div class="w-100 d-flex justify-between">
+                            <a class="links" href="">Leer Historia</a>
+                            <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+                        </div>
+                    </div>
+                    <div class="bar-gradient-horizontal"></div>
+                </article> -->
+
+
+                <!-- ITEM 15 -->
+                <!-- <article class="item-gallery col-xl-3 col-md-6 col-sm-12 p-0">
+                    <img class="img-response" src="../assets/img/stories/pict6-dark-forest.jpg" alt="Stories">
+                    <div class="stories">
+                        <div class="border-bottom container-title-story">
+                            <h3> Montañas</h3>
+                            <span>Por John Appleseed</span>
+                        </div>
+                        <div class="w-100 d-flex justify-between">
+                            <a class="links" href="">Leer Historia</a>
+                            <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+                        </div>
+                    </div>
+                    <div class="bar-gradient-horizontal"></div>
+                </article> -->
+
+
+                <!-- ITEM 16 -->
+                <!-- <article class="item-gallery col-xl-3 col-md-6 col-sm-12 p-0">
+                    <img class="img-response" src="../assets/img/stories/pict4-calm-waters.jpg" alt="Stories">
+                    <div class="stories">
+                        <div class="border-bottom container-title-story">
+                            <h3>El Horizonte</h3>
+                            <span>Por John Appleseed</span>
+                        </div>
+                        <div class="w-100 d-flex justify-between">
+                            <a class="links" href="">Leer Historia</a>
+                            <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+                        </div>
+                    </div>
+                    <div class="bar-gradient-horizontal"></div>
+                </article>
+
+            </div> -->
+            
+
+            
+    </section>
+    <!-- END GALERY -->
+</main>

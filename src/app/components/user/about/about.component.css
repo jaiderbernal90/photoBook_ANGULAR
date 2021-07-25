@@ -1,0 +1,53 @@
+.section-banner{
+    width: 100%;
+    height: 300px;
+}
+
+.bar-gradient-contact{
+    width: 5px;
+    height: 100%;
+    background: var(--MainAccentGradient);
+    z-index: 1;
+}
+
+.container-banner .content-bottom{
+    padding: 0 80px;
+    top: 48%;
+}
+
+
+@media screen and (max-width:820px) {
+    .section-banner{
+        height: auto;
+        flex-direction: column;
+    }
+    .section-banner{
+        height: 400px;
+        width: 100%;
+        flex-direction: column;
+    }
+    .container-banner{
+        height: 100%;
+        width: 100%;
+    }
+
+    .container-banner .content-bottom{
+        flex-direction: column;
+        position: absolute;
+        top: 40%;
+        padding: 0 24px;
+    } 
+
+    .bar-gradient-contact{
+        width: 25%;
+        min-width: 100px;
+        height: 5px !important;
+        margin-left: 32px;
+    }
+    .order-small-1{
+        order: 1;
+    }
+    .order-small-0{
+        order: 0;
+    }
+}
