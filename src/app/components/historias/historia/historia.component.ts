@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { HistoriasService } from '../services/historias.service';
+import { tap } from 'rxjs/operators';
+import { Historias } from '../interfaces/historias.interfaces';
+
 
 @Component({
   selector: 'app-historia',
@@ -7,9 +12,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoriaComponent implements OnInit {
 
-  constructor() { }
+  historia !: any;
+  descripcionFormart!: string;
+
+
+  constructor(private HistoriasSvc: HistoriasService,private rutaActiva: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.listarHistoria();
   }
+
+  listarHistoria(): void{
+    this.HistoriasSvc.viewHistorias(this.rutaActiva.snapshot.params.id).pipe(
+      tap((historias : Historias[]) => {
+        this.historia = historias;
+      })
+    ).subscribe();
+  }
+
 
 }

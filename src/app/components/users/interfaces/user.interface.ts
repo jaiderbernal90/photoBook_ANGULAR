@@ -1,10 +1,12 @@
 export interface User {
-    id:string;
-    title:string;
-    prefijoTitle:string;
-    description_large:string;
-    description_short:string;
-    author_id:string;
-    image:string;
-    date_creation:string;
+    _id?:string;
+    name?:string;
+    lastName?:string;
+    email?:string;
+    role?:string;
+    nickname?:string;
+    phone?:string;
+    password?:string;
+    date_creation?: Date;
+    date_modification?: Date;
 }

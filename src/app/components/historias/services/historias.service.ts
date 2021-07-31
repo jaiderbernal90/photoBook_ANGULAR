@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpEvent, HttpRequest,HttpSentEvent} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Historias } from '../interfaces/historias.interfaces';
 import { HttpHeaders } from '@angular/common/http';
@@ -28,6 +28,12 @@ export class HistoriasService {
     return this.http.get<Historias[]>(url);
   }
 
+  // GET ONE HISTORY
+  getHistoriasLimit(limit: number):Observable<Historias[]>{
+    const url = `${this.apiURL}/listar/${limit}`; // destacada
+    return this.http.get<Historias[]>(url);
+  }
+
   // VIEW ONE HISTORYS
   viewHistorias(id:string):Observable<Historias[]>{
     const url = `${this.apiURL}/${id}`; // id
@@ -51,6 +57,20 @@ export class HistoriasService {
     return this.http.delete<Historias[]>(url, httpOptions);
   }
 
+  // UPLOAD IAMGE
+  upload(file: File,nameArchivo:string): Observable<any> {
+    const formData:FormData  = new FormData();
+    formData.append('userFile', file, file.name);
+
+    const endpoint = `${this.apiURL}/imagen/${nameArchivo}`;
+  
+    return this.http.post<any>(endpoint, formData, {
+      headers: { 'X-Requested-With' : 'XMLHttpRequest' },
+      responseType: 'json',
+      reportProgress: true
+    });
+  }
+  
 }
 
 

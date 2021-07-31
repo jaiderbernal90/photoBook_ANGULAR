@@ -1,1 +1,17 @@
-<p>historia works!</p>
+
+<section class="story-view row p-0 m-0" >
+    <img *ngIf="historia?.image != null " class="img-background p-0 col-sm-12 h-100" src="http://localhost:3000/imagenes/{{ historia?.image }}" alt="">
+
+    <div class="bg-dark-opacity-2 position-absolute d-flex flex-column justify-content-center h-100 w-lg-50 w-sm-100 px-md-3 px-lg-5 text-white col-sm-12 top-content px-sm-0">
+        <h3 class="fw-bold px-5 fz-40 text-white w-75 space-2 mb-5">{{ historia?.title }}</h3>
+
+        <span class="date-story px-5 mb-5 color-grayLight">{{ historia['date_creation'] | date:'dd'  }} de {{ historia['date_creation'] | date:'MMMM':'es-ES'  }} del {{ historia['date_creation'] | date:'yyyy'  }} <em class="text-white">  by John Appleseed</em></span>
+
+        <p class="text-principaly px-5 mb-5 color-grayLight">{{historia?.description_large}}</p>
+
+        <div class="d-flex  px-5">
+            <!-- <a routerLink="{{ historia?._id }}" class="links space-1 ms-24">VER HISTORIA</a>
+            <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg> -->
+        </div>
+    </div>
+</section>

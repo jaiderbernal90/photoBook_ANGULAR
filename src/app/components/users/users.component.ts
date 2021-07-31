@@ -10,9 +10,38 @@ import { User } from './interfaces/user.interface';
 })
 export class UsersComponent implements OnInit {
 
-  constructor() { }
+  users !: User[];
+  mensaje:string = '';
+  mensajeError:string = '';
+
+  constructor(private userSvc: userService) { }
 
   ngOnInit(): void {
+    this.listarHistorias();
+  }
+
+  listarHistorias(): void{
+    this.userSvc.getUsers().pipe(
+      tap((users : User[]) => {
+        this.users = users;
+      })
+    ).subscribe();
+  }
+
+  // eliminarHistoria(id: any){
+  //   this.userSvc.deleteHistoria(id).pipe(
+  //     tap((response: any) => {
+  //       console.log(response);
+  //       if(this.isKeyExists(response, 'mensaje')){
+  //         this.mensaje = 'Historia borrada correctamente';
+  //         this.listarHistorias();
+  //       }
+  //     })
+  //   ).subscribe();
+  // }
+
+  isKeyExists(obj:any,key:any){
+    return key in obj;
   }
 
 }

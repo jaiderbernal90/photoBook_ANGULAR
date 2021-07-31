@@ -20,8 +20,7 @@ export class HistoriasComponent implements OnInit {
   description_short:string = '';
   author_id:string = '';
   image:string = '';
-  date_creation_:Date = new Date();
-  date:string = `${this.date_creation_.getDate()}${this.date_creation_.getMonth()}${this.date_creation_.getFullYear()}`;
+  date:number = Date.now();
 
   constructor(private HistoriasSvc: HistoriasService) {}
 
@@ -44,6 +43,9 @@ export class HistoriasComponent implements OnInit {
 
   // Enviar datos a la api para crear una historia
   crearHistoria(): void{
+    const date = Date.now();
+
+    
     this.historia = {
       'title': this.titleHistoria,
       'prefijoTitle': this.prefijoTitle,
@@ -51,7 +53,7 @@ export class HistoriasComponent implements OnInit {
       'description_short': this.description_short,
       'author_id': this.author_id,
       'image': this.image,
-      'date_creation': this.date
+      'date_creation': new Date(date)
     }
 
     this.HistoriasSvc.createHistorias(this.historia)
@@ -60,6 +62,8 @@ export class HistoriasComponent implements OnInit {
 
   // Enviar datos y id a la api para editar una historia
   editarHistoria(): void{
+    const date = Date.now();
+
     this.historia = {
       'title': this.titleHistoria,
       'prefijoTitle': this.prefijoTitle,
@@ -67,7 +71,7 @@ export class HistoriasComponent implements OnInit {
       'description_short': this.description_short,
       'author_id': this.author_id,
       'image': this.image,
-      'date_creation': this.date
+      'date_modification': new Date(date),
     }
 
     this.HistoriasSvc.updateHistoria(this.historia, '60fca34e59e70641649a1046')

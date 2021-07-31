@@ -1,0 +1,9 @@
+.story-view{
+    max-height: 970px;
+    overflow: hidden;
+    position: relative;
+}
+.story-view img{
+    height:100%;
+    background-position: center;
+}

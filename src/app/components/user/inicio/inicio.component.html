@@ -7,7 +7,8 @@
                 <h2 class="fw-bold px-md-2 px-sm-0 px-lg-3 px-xl-4 px-0 fz-40 text-white w-75 letter-spacing-5">CREA Y COMPARTE TUS HISTORIAS CON FOTOGRAFÍAS.</h2>
                 <p class="px-md-2 px-sm-0 px-lg-3 px-xl-4 px-0 color-grayLight w-75 mt-3">Photobook es una plataforma para fotógrafos y narradores visuales. Hacemos que sea fácil compartir fotos, contar historias y conectar con otros.</p>
                 <div class="d-flex px-md-2 px-sm-0 px-lg-3 px-xl-4 px-02 mt-5">
-                    <a href="" class="links space-1">VER HISTORIA</a>
+                    <a routerLink="/historias" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                        true}" class="nav-link" class="links space-1">VER HISTORIA</a>
                     <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
                 </div>
             </div>
@@ -28,7 +29,8 @@
                 <h2 class="fw-bold px-md-2 px-sm-0 px-lg-3 px-xl-4 px-0 fz-40 letter-spacing-5">ENCANTADORAS HISTORIAS TODO EL TIEMPO.</h2>
                 <p class="px-md-2 px-sm-0 px-lg-3 px-xl-4 px-0 color-grayLight mt-4 px-5">Añade fácilmente fotos, texto y medios de comunicación de otras redes. Luego, comparte tu historia con todo el mundo.</p>
                 <div class="d-flex ps-xl-5 ps-lg-3 ps-md-0  mt-5">
-                    <a href="" class="links space-1 mr-24 color-blueDark">VER HISTORIA</a>
+                    <a routerLink="/historias" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                        true}" class="nav-link" class="links space-1 mr-24 color-blueDark">VER HISTORIA</a>
                     <svg class="fill-black" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
                 </div>
             </div>
@@ -43,7 +45,8 @@
                 <h2 class="fw-bold px-md-2 px-sm-0 px-lg-3 px-xl-4 px-0 fz-40 letter-spacing-5 w-75">DISEÑADO PARA TODOS.</h2>
                 <p class="px-md-2 px-sm-0 px-lg-3 px-xl-4 px-0 color-grayLight mt-4 w-75">PhotoBook puede ayudarte a crear historias que resuenen con tu audiencia. Nuestra herramienta está diseñada para fotógrafos de todos los niveles, marcas, empresas, lo que sea.</p>
                 <div class="d-flex ps-md-2 ps-sm-0 ps-lg-3 ps-xl-4 ps-0 mt-5">
-                    <a href="" class="links space-1 mr-24 color-blueDark">VER HISTORIA</a>
+                    <a routerLink="/historias" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                        true}" class="nav-link" class="links space-1 mr-24 color-blueDark">VER HISTORIA</a>
                     <svg class="fill-black" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
                 </div>
             </div>
@@ -55,7 +58,27 @@
     <!-- END THIRD SECTION -->
   
     <!-- GALERY -->
-    <section class="row w-100 d-flex container-galery m-0">
+    <section class="row w-100 d-flex container-galery m-0" *ngIf="historiaslimit.length >= 4">
+        <!-- ITEM 1 -->
+        <article class="col-xl-3 col-sm-12 col-12 col-lg-3 col-md-6 item-gallery p-0" *ngFor="let historia of historiaslimit">
+            <img class="img-response" src="http://localhost:3000/imagenes/{{ historia.image }}" alt="Stories">
+            <div class="stories">
+                <div class="border-bottom-story container-title-story">
+                    <h3>{{ historia.title }}</h3>
+                    <span>Por John Appleseed</span>
+                </div>
+                <div class="w-100 d-flex justify-between">
+                    <a routerLink="/historias/{{ historia._id}}" class="links">Leer Historia</a>
+                    <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+                </div>
+            </div>
+            <div class="bar-gradient-horizontal"></div>
+        </article>
+    </section>
+    <!-- END GALERY -->
+
+    <!-- GALERY -->
+    <section class="row w-100 d-flex container-galery m-0" *ngIf="historiaslimit.length < 4">
         <!-- ITEM 1 -->
         <article class="col-xl-3 col-sm-12 col-12 col-lg-3 col-md-6 item-gallery p-0">
             <img class="img-response" src="../assets/img/pic-1-home.jpg" alt="Stories">
@@ -65,7 +88,8 @@
                     <span>Por John Appleseed</span>
                 </div>
                 <div class="w-100 d-flex justify-between">
-                    <a class="links" href="">Leer Historia</a>
+                    <a routerLink="/historias" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                        true}" class="links">Leer Historia</a>
                     <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
                 </div>
             </div>
@@ -80,7 +104,8 @@
                     <span>Por Benjamin Cruz</span>
                 </div>
                 <div class="w-100 d-flex justify-between">
-                    <a class="links" href="">Leer Historia</a>
+                    <a routerLink="/historias" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                        true}" class="links">Leer Historia</a>
                     <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
                 </div>
             </div>
@@ -95,7 +120,8 @@
                     <span>Por Alexei Borodin</span>
                 </div>
                 <div class="w-100 d-flex justify-between cont-link">
-                    <a class="links" href="">Leer Historia</a>
+                    <a routerLink="/historias" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                        true}" class="links">Leer Historia</a>
                     <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
                 </div>
             </div>
@@ -110,7 +136,8 @@
                     <span>Por Samantha Brooke</span>
                 </div>
                 <div class="w-100 d-flex justify-between">
-                    <a class="links mr-32" href="">Leer Historia</a>
+                    <a routerLink="/historias" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                        true}" class="links mr-32" href="">Leer Historia</a>
                     <svg class="fill-white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
                 </div>
             </div>

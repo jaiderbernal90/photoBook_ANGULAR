@@ -1,0 +1,31 @@
+<div class="container mt-50 shadow-lg p-3 mb-5 bg-body rounded p-5">
+    <div class="row">
+        <div class="col-12 m-auto">
+            <div class="alert alert-success" *ngIf="mensaje != ''" > 
+                {{ mensaje }}
+            </div>
+            <table class="table">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Descripción Corta</th>
+                        <th scope="col">Descripción Larga</th>
+                        <th scope="col">Fecha de creación</th>
+                        <th scope="col">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let historia of historias">
+                        <td>{{ historia.title}}</td>
+                        <td>{{ historia.description_short }}</td>
+                        <td>{{ historia.description_large  | slice:0:255 }}</td>
+                        <td>{{ historia.date_creation | date:'dd/MM/yy HH:mm:ss'}}</td>
+                        <td>  <a class="btn btn-outline-success" routerLink="/administrador/historias/editar/{{ historia._id }}">Editar</a>  <a class="btn btn-outline-danger" (click)="eliminarHistoria(historia._id)">Eliminar</a> </td>
+                    </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+
+</div>
+

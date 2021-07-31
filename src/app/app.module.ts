@@ -15,7 +15,13 @@ import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, FormBuilder, FormGroup, Validators,FormControl,ReactiveFormsModule } from "@angular/forms";
 import { FormCreateHistoriaComponent } from './components/historias/form-create-historia/form-create-historia.component';
 import { AngularFileUploaderModule } from "angular-file-uploader";
-
+import { HistoriasAdminComponent } from './components/admin/historias-admin/historias-admin.component';
+import { EditComponent } from './components/admin/historias-admin/edit/edit.component';
+import { DeleteComponent } from './components/admin/historias-admin/delete/delete.component';
+import { SuscripcionesComponent } from './components/admin/suscripciones/suscripciones.component';
+import { EditUserComponent } from './components/users/edit/edit.component';
+import { CreateUsersComponent } from './components/users/create-users/create-users.component';
+import { DeleteUsersComponent } from './components/users/delete-users/delete-users.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +35,14 @@ import { AngularFileUploaderModule } from "angular-file-uploader";
     HistoriaComponent,
     LoginComponent,
     RegisterComponent,
-    FormCreateHistoriaComponent
+    FormCreateHistoriaComponent,
+    HistoriasAdminComponent,
+    EditComponent,
+    DeleteComponent,
+    SuscripcionesComponent,
+    EditUserComponent,
+    CreateUsersComponent,
+    DeleteUsersComponent
   ],
   imports: [
     BrowserModule, 

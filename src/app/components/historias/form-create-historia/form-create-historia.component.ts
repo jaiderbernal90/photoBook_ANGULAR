@@ -3,6 +3,8 @@ import { HistoriasService } from '../services/historias.service';
 import { FormBuilder, FormGroup, Validators,FormControl} from '@angular/forms';
 import { tap } from 'rxjs/operators';
 import { Historias } from '../interfaces/historias.interfaces';
+import { HttpEventType, HttpResponse } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-form-create-historia',
@@ -14,16 +16,11 @@ export class FormCreateHistoriaComponent implements OnInit {
 
   historia !: Historias;
   formHistory !: FormGroup;
+  nameImage !: string;
   date_actual :Date = new Date();
   mensaje:string = '';
   mensajeError:string = '';
-
-  afuConfig = {
-    uploadAPI: {
-      url:"https://example-file-upload-api"
-    }
-  }
-
+  selectedImage:any; 
 
   constructor(private fb: FormBuilder,private HistoriasSvc: HistoriasService) {
     this.formHistory = this.fb.group({
@@ -39,23 +36,25 @@ export class FormCreateHistoriaComponent implements OnInit {
   }
 
   onSubmit(){ 
+
+
+    const date = Date.now();
     this.mensaje = '';
     this.mensajeError= '';
     
     
     if(this.formHistory.status == "VALID"){
+      this.uploadImage(this.selectedImage[0]);
       this.HistoriasSvc.createHistorias({ 
         title: this.formHistory.value.titulo,
         prefijoTitle: this.formHistory.value.titulo,
         description_large:this.formHistory.value.descripcionLarga,
         description_short:this.formHistory.value.descripcionCorta,
         author_id:'60ce2904a59c30c5da5192c7',
-        image:this.formHistory.value.imagen.substr(12),
-        date_creation:`${this.date_actual.getDate()}${this.date_actual.getMonth()}${this.date_actual.getFullYear()}`,
-        date_modification: '',
+        image: this.updateName(this.selectedImage[0].name,'save'),
+        date_creation: new Date(date),
       })
       .subscribe(respuesta =>{
-        console.log(respuesta);
         if(this.isKeyExists(respuesta, 'mensaje')){
           this.mensaje = 'Historia agregada exitosamente';
           this.formHistory.reset();
@@ -65,8 +64,47 @@ export class FormCreateHistoriaComponent implements OnInit {
     
   }
 
+  selectFile(event:any){    
+    this.selectedImage = event.target.files;
+    console.log(Date.now());
+    
+  }
+
+  uploadImage(file: any){
+     this.HistoriasSvc.upload(file,this.updateName(this.selectedImage[0].name,"upload")).subscribe(
+       event =>{
+         if(event.type === HttpEventType.UploadProgress){
+            
+         }else if(event instanceof HttpResponse){
+          this.mensaje = event.body.mensaje;
+         }
+       },
+       err => {
+         this.mensaje = 'No se pudo subir el archivo';
+       }
+     );
+  }
+
   isKeyExists(obj:any,key:any){
     return key in obj;
+  }
+
+  updateName(name:string, type:string){
+    let nameArchivo = "";
+    if(type == "upload"){
+      nameArchivo = name.replace(/ /g, "-");
+      nameArchivo = nameArchivo.replace(/[^a-zA-Z]/g, "")+'-'+ Date.now();    
+      nameArchivo = nameArchivo.toLowerCase(); 
+      this.nameImage = nameArchivo;  
+  
+    }else if(type == "save"){
+      const num = name.indexOf(".");
+      const ext = name.slice(num); 
+
+      nameArchivo = `${this.nameImage}${ext}`;    
+    }
+    
+    return nameArchivo;
   }
 
 }

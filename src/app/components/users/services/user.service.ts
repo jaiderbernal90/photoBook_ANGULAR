@@ -18,17 +18,36 @@ export class userService {
   private apiURL = 'http://localhost:3000/usuarios';
   constructor(private http: HttpClient) {}
 
-  getHistorias():Observable<User[]>{
+  // GET ALL USERS
+  getUsers():Observable<User[]>{
     return this.http.get<User[]>(this.apiURL);
   }
-
-  createHistorias(user: User):Observable<User[]>{   
+  // CREATE USER
+  createUser(user: User):Observable<User[]>{   
     return this.http.post<User[]>(this.apiURL, user, httpOptions);
   }
 
   validateLogin(user: User):Observable<User[]>{   
     const url = `${this.apiURL}/login`;
     return this.http.post<User[]>(url, user, httpOptions);
+  }
+
+  // VIEW ONE USER
+  viewUser(id:string):Observable<User[]>{
+    const url = `${this.apiURL}/${id}`; // id
+    return this.http.get<User[]>(url);
+  }
+
+  // UPDATE USER
+  updateUser(user: User, id: string):Observable<User[]>{
+    const url = `${this.apiURL}/${id}`; // Update api/user/:id
+    return this.http.put<User[]>(url, user, httpOptions);
+  }
+
+  // DELETE USER
+  deleteUser(id: string): Observable<User[]> {
+    const url = `${this.apiURL}/${id}`; // DELETE api/users/:id
+    return this.http.delete<User[]>(url, httpOptions);
   }
 
   

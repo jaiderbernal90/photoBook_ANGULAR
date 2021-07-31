@@ -6,6 +6,6 @@ export interface Historias {
     description_short:string;
     author_id:string;
     image:string;
-    date_creation:string;
-    date_modification?:string;
+    date_creation?:Date;
+    date_modification?:Date;
 }

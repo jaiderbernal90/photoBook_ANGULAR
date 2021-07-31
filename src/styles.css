@@ -7,7 +7,7 @@
     --white: #fff;
     --black: #222F3D;
     --gray: rgb(235, 235, 235);
-    --grayLight: rgb(153, 153, 153);
+    --grayLight: rgb(183 183 183);
     --MainAccentGradient: linear-gradient(45deg,#0575E6 0%,#5DADE2 50%,#00F260 100%);
 }
 
@@ -24,6 +24,11 @@ body, input::placeholder{
     background: rgb(180, 180, 180);
 }
 
+td, th {
+    text-align: center;
+    vertical-align: middle;
+}
+
 
 a{
     text-decoration: none;
@@ -31,6 +36,7 @@ a{
 
 main{
     width: 100%;
+    height: auto;
 }
 
 main .sections{
@@ -266,7 +272,9 @@ header{
     justify-content: flex-end;
     background: rgba(0,0,0,0.25);
 }
-
+.top-75{
+    top: 75px !important;
+}
 .container-title-story{
     width: 100%;
     margin-bottom: 16px;
@@ -319,6 +327,10 @@ header{
 
 .img-response{
     transition: transform 1s;
+}
+
+.bg-dark-opacity-2{
+    background: rgba(0, 0, 0, 0.45);
 }
 
 .img-response:hover{    

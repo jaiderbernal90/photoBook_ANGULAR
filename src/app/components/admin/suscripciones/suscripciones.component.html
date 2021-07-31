@@ -1,0 +1,27 @@
+<div class="container mt-50 shadow-lg p-3 mb-5 bg-body rounded p-5">
+    <div class="row">
+        <div class="col-12 m-auto">
+            <div class="alert alert-success" *ngIf="mensaje != ''" > 
+                {{ mensaje }}
+            </div>
+            <table class="table">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Fecha de creación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let suscription of suscripciones">
+                        <td>{{ suscription.name }}</td>
+                        <td>{{ suscription.email }}</td>
+                        <td>{{ suscription.date_creation | date:'dd/MM/yy HH:mm:ss' }}</td>
+                    </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+
+</div>
+
