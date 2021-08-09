@@ -18,7 +18,7 @@ export class HistoriasComponent implements OnInit {
   prefijoTitle:string = '';
   description_large:string = '';
   description_short:string = '';
-  author_id:string = '';
+  autor:string = '';
   image:string = '';
   date:number = Date.now();
 
@@ -51,7 +51,7 @@ export class HistoriasComponent implements OnInit {
       'prefijoTitle': this.prefijoTitle,
       'description_large': this.description_large,
       'description_short': this.description_short,
-      'author_id': this.author_id,
+      'autor': this.autor,
       'image': this.image,
       'date_creation': new Date(date)
     }
@@ -69,7 +69,7 @@ export class HistoriasComponent implements OnInit {
       'prefijoTitle': this.prefijoTitle,
       'description_large': this.description_large,
       'description_short': this.description_short,
-      'author_id': this.author_id,
+      'autor': this.autor,
       'image': this.image,
       'date_modification': new Date(date),
     }

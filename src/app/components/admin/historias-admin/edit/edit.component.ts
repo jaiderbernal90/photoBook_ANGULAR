@@ -32,6 +32,7 @@ export class EditComponent implements OnInit {
 
     this.formHistory = this.fb.group({
       titulo: ['', [Validators.minLength(8),Validators.required]],
+      autor: ['', [Validators.minLength(5),Validators.required]],
       descripcionCorta: ['', [Validators.required,Validators.minLength(50),Validators.maxLength(255)]],
       descripcionLarga: ['', [Validators.required,Validators.minLength(50)]],
       imagen: ['', [Validators.required]],
@@ -54,6 +55,7 @@ export class EditComponent implements OnInit {
   formulario(fb ?: FormBuilder): void{
     this.formHistory = this.fb.group({
       titulo: [this.historiaSin.title, [Validators.minLength(8),Validators.required]],
+      autor: [this.historiaSin.autor, [Validators.minLength(5),Validators.required]],
       descripcionCorta: [this.historiaSin.description_short, [Validators.required,Validators.minLength(50),Validators.maxLength(255)]],
       descripcionLarga: [this.historiaSin.description_large, [Validators.required,Validators.minLength(50)]],
       imagen: ['', []],
@@ -79,10 +81,10 @@ export class EditComponent implements OnInit {
     if(this.formHistory.status == "VALID"){
       this.HistoriasSvc.updateHistoria({ 
         title: this.formHistory.value.titulo,
+        autor: this.formHistory.value.autor,
         prefijoTitle: this.formHistory.value.titulo,
         description_large:this.formHistory.value.descripcionLarga,
         description_short:this.formHistory.value.descripcionCorta,
-        author_id:'60ce2904a59c30c5da5192c7',
         image: this.formHistory.value.imagen,
         date_modification: new Date(date),
       }, this.rutaActiva.snapshot.params.id)

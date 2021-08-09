@@ -25,6 +25,7 @@ export class FormCreateHistoriaComponent implements OnInit {
   constructor(private fb: FormBuilder,private HistoriasSvc: HistoriasService) {
     this.formHistory = this.fb.group({
       titulo: ['', [Validators.minLength(8),Validators.required]],
+      autor: ['', [Validators.minLength(5),Validators.required]],
       descripcionCorta: ['', [Validators.required,Validators.minLength(50),Validators.maxLength(255)]],
       descripcionLarga: ['', [Validators.required,Validators.minLength(50)]],
       imagen: ['', [Validators.required]],
@@ -47,10 +48,10 @@ export class FormCreateHistoriaComponent implements OnInit {
       this.uploadImage(this.selectedImage[0]);
       this.HistoriasSvc.createHistorias({ 
         title: this.formHistory.value.titulo,
+        autor: this.formHistory.value.autor,
         prefijoTitle: this.formHistory.value.titulo,
         description_large:this.formHistory.value.descripcionLarga,
         description_short:this.formHistory.value.descripcionCorta,
-        author_id:'60ce2904a59c30c5da5192c7',
         image: this.updateName(this.selectedImage[0].name,'save'),
         date_creation: new Date(date),
       })

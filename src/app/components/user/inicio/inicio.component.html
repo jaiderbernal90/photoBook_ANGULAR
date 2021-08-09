@@ -58,14 +58,14 @@
     <!-- END THIRD SECTION -->
   
     <!-- GALERY -->
-    <section class="row w-100 d-flex container-galery m-0" *ngIf="historiaslimit.length >= 4">
+    <section class="row w-100 d-flex container-galery m-0" *ngIf="historiaslimit != null && historiaslimit.length >= 4">
         <!-- ITEM 1 -->
         <article class="col-xl-3 col-sm-12 col-12 col-lg-3 col-md-6 item-gallery p-0" *ngFor="let historia of historiaslimit">
             <img class="img-response" src="http://localhost:3000/imagenes/{{ historia.image }}" alt="Stories">
             <div class="stories">
                 <div class="border-bottom-story container-title-story">
                     <h3>{{ historia.title }}</h3>
-                    <span>Por John Appleseed</span>
+                    <span>Por {{ historia.autor }}</span>
                 </div>
                 <div class="w-100 d-flex justify-between">
                     <a routerLink="/historias/{{ historia._id}}" class="links">Leer Historia</a>
@@ -78,7 +78,7 @@
     <!-- END GALERY -->
 
     <!-- GALERY -->
-    <section class="row w-100 d-flex container-galery m-0" *ngIf="historiaslimit.length < 4">
+    <section class="row w-100 d-flex container-galery m-0" *ngIf="historiaslimit != null && historiaslimit.length < 4">
         <!-- ITEM 1 -->
         <article class="col-xl-3 col-sm-12 col-12 col-lg-3 col-md-6 item-gallery p-0">
             <img class="img-response" src="../assets/img/pic-1-home.jpg" alt="Stories">

@@ -8,7 +8,7 @@
             <strong class="favorite-story mb-lg-4 mb-md-2 px-5">HISTORIA DESTACADA DEL MES</strong>
             <h3 class="fw-bold px-5 fz-40 text-white w-75 space-2 mb-5">{{ historia['title'] }}</h3>
 
-            <span class="date-story px-5 mb-5 color-grayLight">{{ historia['date_creation'] | date:'dd'  }} de {{ historia['date_creation'] | date:'MMMM':'es-ES'  }} del {{ historia['date_creation'] | date:'yyyy'  }} <em class="text-white">  by John Appleseed</em></span>
+            <span class="date-story px-5 mb-5 color-grayLight">{{ historia['date_creation'] | date:'dd'  }} de {{ historia['date_creation'] | date:'MMMM':'es-ES'  }} del {{ historia['date_creation'] | date:'yyyy'  }} <em class="text-white">  by {{ historia.autor }}</em></span>
 
             <p class="text-principaly px-5 mb-5 color-grayLight">{{ historia['description_large'] }}</p>
 
@@ -27,7 +27,7 @@
                     <div class="stories">
                         <div class="border-bottom container-title-story">
                             <h3>{{ historia['title'] }}</h3>
-                            <span>Por John Appleseed</span>
+                            <span>Por {{ historia?.autor }}</span>
                         </div>
                         <div class="w-100 d-flex justify-between">
                             <a class="links" routerLink="{{ historia['_id'] }}">Leer Historia</a>

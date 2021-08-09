@@ -3,8 +3,8 @@ export interface Historias {
     title:string;
     prefijoTitle:string;
     description_large:string;
+    autor:string;
     description_short:string;
-    author_id:string;
     image:string;
     date_creation?:Date;
     date_modification?:Date;
